@@ -1,24 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="utf-8">
-    <title>lop hoc</title>
-   </head>
-   <body>
-<table border="0" width="100%">
-<tr>
-      <td align="center" colspan="2">
-      <h1>Ky yeu 12A</h1>
-      </td>
-</tr>
-<tr>
-     <td width="30%">
-           <iframe width="100%" height="100%" src="thanhvienlop.html"></iframe>
-</td>
-<td>
-     <iframe width="100%" height="500%" name="noidung"></iframe>
-         </td>
-     </tr>
-  </table>
+    <title>Kỉ yếu lớp 12A - Hoàn chỉnh</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f9; }
+        .container { display: flex; gap: 20px; margin-top: 20px; }
+        
+        /* Cột bên trái: Danh sách */
+        .sidebar { 
+            width: 30%; 
+            background: #fff; 
+            padding: 15px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+        }
+        
+        /* Cột bên phải: Nội dung chi tiết */
+        .content-box { 
+            width: 70%; 
+            background: #fff; 
+            padding: 20px; 
+            border-radius: 8px; 
+            min-height: 300px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1 { color: #2c3e50; text-align: center; }
+        h2 { color: #2980b9; margin-top: 0; }
+        
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        
+        /* Style cho các đường link giả */
+        .member-link { 
+            color: #3498db; 
+            text-decoration: underline; 
+            cursor: pointer; 
+        }
+        .member-link:hover { color: #e74c3c; }
+
+        .hidden-info { display: none; }
+        .back-link { text-decoration: none; color: #666; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <a href="../index.html" class="back-link">← Quay lại trang chủ</a>
+    
+    <h1>Kỉ yếu lớp 12A</h1>
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>Thành viên lớp</h2>
+            <ul>
+                <li>
+                    <span class="member-link" onclick="showInfo('loptruong')">Lớp trưởng</span>
+                </li>
+                <li>
+                    <span class="member-link" onclick="showInfo('loppho')">Lớp phó</span>
+                </li>
+                <li>Danh sách tổ 1
+                    <ul>
+                        <li>Trần Văn Trung</li>
+                        <li>Nguyễn Thị Tú</li>
+                        <li>Hoàng Thanh Sang</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-box" id="display-area">
+            <p><i>Chọn một thành viên bên trái để xem thông tin chi tiết.</i></p>
+        </div>
+    </div>
+
+    <div id="data-storage" class="hidden-info">
+        <div id="info-loptruong">
+            <h3>Thông tin Lớp trưởng</h3>
+            <p><strong>Họ và tên:</strong> Nguyễn Hoàng Lam</p>
+            <p><strong>Ngày sinh:</strong> 31/12</p> <p><strong>Chức vụ:</strong> Lớp trưởng mẫu mực</p>
+        </div>
+
+        <div id="info-loppho">
+            <h3>Thông tin Lớp phó</h3>
+            <p><strong>Họ và tên:</strong> Trương Nguyễn Quỳnh Giao</p>
+            <p><strong>Ngày sinh:</strong> 14/02</p>
+            <p><strong>Chức vụ:</strong> Lớp phó học tập</p>
+        </div>
+    </div>
+
+    <script>
+        function showInfo(id) {
+            // Lấy nội dung từ kho dữ liệu dựa trên id
+            const content = document.getElementById('info-' + id).innerHTML;
+            // Hiển thị vào khung bên phải
+            document.getElementById('display-area').innerHTML = content;
+        }
+    </script>
+
 </body>
-      </html>
+</html>
